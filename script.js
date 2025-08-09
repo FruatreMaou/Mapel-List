@@ -39,7 +39,6 @@ class ScheduleReminder {
     }
 
     setupEventListeners() {
-        // Day navigation buttons
         document.querySelectorAll('.day-btn').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 const day = e.target.dataset.day;
@@ -47,13 +46,10 @@ class ScheduleReminder {
                 this.displaySchedule(day);
             });
         });
-
-        // Notification toggle
         document.getElementById('notificationToggle').addEventListener('click', () => {
             this.toggleNotifications();
         });
 
-        // Settings modal
         document.getElementById('settingsBtn').addEventListener('click', () => {
             this.openSettings();
         });
@@ -65,8 +61,6 @@ class ScheduleReminder {
         document.getElementById('saveSettings').addEventListener('click', () => {
             this.saveSettings();
         });
-
-        // Close modal when clicking outside
         document.getElementById('settingsModal').addEventListener('click', (e) => {
             if (e.target.id === 'settingsModal') {
                 this.closeSettings();
@@ -141,7 +135,6 @@ class ScheduleReminder {
         const currentTime = now.getHours() * 60 + now.getMinutes();
         const currentDay = this.getCurrentDay();
         
-        // Only check status for current day
         if (item.day !== currentDay) {
             return {
                 class: '',
@@ -186,15 +179,12 @@ class ScheduleReminder {
             if (daySchedule[index]) {
                 const status = this.getScheduleStatus(daySchedule[index]);
                 
-                // Remove old status classes
                 item.classList.remove('current', 'upcoming', 'completed');
                 
-                // Add new status class
                 if (status.class) {
                     item.classList.add(status.class);
                 }
                 
-                // Update status text
                 const statusElement = item.querySelector('.schedule-status');
                 if (statusElement) {
                     statusElement.className = `schedule-status ${status.statusClass}`;
@@ -267,8 +257,7 @@ class ScheduleReminder {
     }
 
     checkNotificationPermission() {
-        if ('Notification' in window && Notification.permission === 'granted') {
-            // Don't auto-enable, let user choose
+        if ('Notification' in window && Notification.permission === 'granted') 
         }
     }
 
@@ -340,8 +329,6 @@ class ScheduleReminder {
 
     openSettings() {
         document.getElementById('settingsModal').style.display = 'block';
-        
-        // Load current settings
         document.getElementById('notificationTime').value = this.notificationTime;
         document.getElementById('soundNotification').checked = this.soundEnabled;
         document.getElementById('autoAdvanceDay').checked = this.autoAdvanceDay;
@@ -356,7 +343,6 @@ class ScheduleReminder {
         this.soundEnabled = document.getElementById('soundNotification').checked;
         this.autoAdvanceDay = document.getElementById('autoAdvanceDay').checked;
         
-        // Save to localStorage
         const settings = {
             notificationEnabled: this.notificationEnabled,
             notificationTime: this.notificationTime,
