@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jadwal Mata Pelajaran XII AP 1</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1><i class="fas fa-calendar-alt"></i> Jadwal Mata Pelajaran XII AP 1</h1>
+            <div class="header-controls">
+                <button id="notificationToggle" class="notification-btn">
+                    <i class="fas fa-bell"></i>
+                    <span id="notificationStatus">Aktifkan Notifikasi</span>
+                </button>
+                <button id="settingsBtn" class="settings-btn">
+                    <i class="fas fa-cog"></i>
+                </button>
+            </div>
+        </header>
+
+        <nav class="day-navigation">
+            <button class="day-btn active" data-day="Senin">Senin</button>
+            <button class="day-btn" data-day="Selasa">Selasa</button>
+            <button class="day-btn" data-day="Rabu">Rabu</button>
+            <button class="day-btn" data-day="Kamis">Kamis</button>
+            <button class="day-btn" data-day="Jumat">Jumat</button>
+        </nav>
+
+        <main class="main-content">
+            <div class="current-time">
+                <i class="fas fa-clock"></i>
+                <span id="currentTime"></span>
+            </div>
+            
+            <div id="scheduleContainer" class="schedule-container">
+                <!-- Schedule items will be populated by JavaScript -->
+            </div>
+        </main>
+
+        <div id="settingsModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3><i class="fas fa-cog"></i> Pengaturan Notifikasi</h3>
+                    <button class="close-btn" id="closeSettings">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="setting-item">
+                        <label for="notificationTime">Waktu Notifikasi Sebelum Kelas:</label>
+                        <select id="notificationTime">
+                            <option value="5">5 menit</option>
+                            <option value="10" selected>10 menit</option>
+                            <option value="15">15 menit</option>
+                            <option value="20">20 menit</option>
+                        </select>
+                    </div>
+                    <div class="setting-item">
+                        <label>
+                            <input type="checkbox" id="soundNotification" checked>
+                            Suara Notifikasi
+                        </label>
+                    </div>
+                    <div class="setting-item">
+                        <label>
+                            <input type="checkbox" id="autoAdvanceDay" checked>
+                            Otomatis Pindah ke Hari Berikutnya
+                        </label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="saveSettings" class="save-btn">Simpan Pengaturan</button>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="footer-content">
+                <p><i class="fas fa-school"></i> SMK 29 Jakarta - Kelas XII AP 1</p>
+                <div class="notification-status">
+                    <span id="notificationStatusFooter">Notifikasi: Nonaktif</span>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="schedule-data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+
