@@ -19,11 +19,11 @@ class ScheduleReminder {
         this.checkNotificationPermission();
         this.scheduleNotifications();
         
-        // Update time every minute
+        // Update time every second
         setInterval(() => {
             this.updateCurrentTime();
             this.updateScheduleStatus();
-        }, 60000);
+        }, 1000);
     }
 
     getCurrentDay() {
@@ -137,9 +137,9 @@ class ScheduleReminder {
         
         if (item.day !== currentDay) {
             return {
-                class: '',
-                statusClass: '',
-                text: ''
+                class: 
+                statusClass: 
+                text: 
             };
         }
         
@@ -161,17 +161,13 @@ class ScheduleReminder {
                 class: 'upcoming',
                 statusClass: 'status-upcoming',
                 text: 'Akan Datang'
-            };
-        } else {
+           if (item.day !== currentDay) {
             return {
-                class: 'completed',
-                statusClass: 'status-completed',
-                text: 'Selesai'
+                class: 
+                statusClass: 
+                text: 
             };
-        }
-    }
-
-    updateScheduleStatus() {
+        }  updateScheduleStatus() {
         const scheduleItems = document.querySelectorAll('.schedule-item');
         const daySchedule = scheduleData.filter(item => item.day === this.currentDay);
         
