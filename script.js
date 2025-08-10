@@ -257,7 +257,9 @@ class ScheduleReminder {
     }
 
     checkNotificationPermission() {
-        if ('Notification' in window && Notification.permission === 'granted') 
+        if ('Notification' in window && Notification.permission === 'granted') {
+            this.notificationEnabled = true;
+            this.updateNotificationUI();
         }
     }
 

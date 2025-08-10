@@ -1,11 +1,11 @@
 // Service Worker for Schedule Reminder
 const CACHE_NAME = 'schedule-reminder-v1';
 const urlsToCache = [
-    '/',
-    '/index.html',
-    '/styles.css',
-    '/script.js',
-    '/schedule-data.js',
+    './',
+    './index.html',
+    './styles.css',
+    './script.js',
+    './schedule-data.js',
     'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css'
 ];
 
